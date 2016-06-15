@@ -30,6 +30,15 @@ if (isset($_GET['module'])) {
 				if ($_GET['module']=='search') {
 					include_once 'content/searchByKey-view.php';
 				}
+				if ($_GET['module']=='info-history') {
+					include_once 'content/history-view.php';
+				}
+				if ($_GET['module']=='info-service') {
+					include_once 'content/service-view.php';
+				}
+				if ($_GET['module']=='info-member') {
+					include_once 'content/member-info.php';
+				}
 			 ?>
 		</div>
 		<?php

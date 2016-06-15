@@ -71,9 +71,6 @@
                       "dropdown" data-toggle="dropdown" href="?module=info">Profil <i class="fa fa-angle-down"></i></a>
                       <ul class="dropdown-menu">
                           <li>
-                              <a href="?module=profil">Profil</a>
-                          </li>
-                          <li>
                               <a href="?module=profil">Management Team</a>
                           </li>
                       </ul>
@@ -83,15 +80,17 @@
                       "dropdown" data-toggle="dropdown" href="?module=info">Informasi <i class="fa fa-angle-down"></i></a>
                       <ul class="dropdown-menu">
                           <li>
-                              <a href="?module=profil">Librarian</a>
+                              <a href="?module=info-history">Sekilas Perpustakaan</a>
                           </li>
                           <li>
-                              <a href="typography.html">Typography</a>
+                              <a href="?module=info-service">Jam Pelayanan</a>
                           </li>
                           <li>
-                              <a href="typography.html">Typography</a>
+                              <a href="?module=info-member">Keanggotaan</a>
                           </li>
-
+                          <li>
+                              <a href="?module=info-transaction">Sirkulasi</a>
+                          </li>
                       </ul>
                   </li>
                   <li>

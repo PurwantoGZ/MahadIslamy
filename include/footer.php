@@ -274,6 +274,28 @@ FROM `guestbook`,`member` WHERE `guestbook`.`IdMember`=`member`.`IdMember` ORDER
           
         });
 
+        $('#loginForm').submit(function() {
+          $.ajax({
+            url: $(this).attr('action'),
+            type: 'POST',
+            dataType: 'json',
+            data: {param1: 'value1'},
+            success:function (data) {
+               alert("Hello"); 
+            }
+          })
+          .done(function() {
+            console.log("success");
+          })
+          .fail(function() {
+            console.log("error");
+          })
+          .always(function() {
+            console.log("complete");
+          });
+          
+        });
+
         $('#newGuestForm').submit(function() {
           $.ajax({
             url: $(this).attr('action'),

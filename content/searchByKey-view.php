@@ -2,7 +2,7 @@
 include_once 'config/base.php';
 $db= new BaseClass();
 $keywords=$_GET['keywords'];
-$result=$db->displayTable('SELECT * FROM `viewcollection` WHERE Status LIKE "%'.$keywords.'%" OR SubCategory LIKE "%'.$keywords.'%" OR KindName LIKE "%'.$keywords.'%" OR  AuthorName LIKE "%'.$keywords.'%" OR  Year LIKE "%'.$keywords.'%" OR Title LIKE "%'.$keywords.'%"');
+$result=$db->displayTable('SELECT * FROM `viewcollection` WHERE Status LIKE "%'.$keywords.'%" OR SubCategory LIKE "%'.$keywords.'%" OR KindName LIKE "%'.$keywords.'%" OR  AuthorName LIKE "%'.$keywords.'%" OR  Year LIKE "%'.$keywords.'%" OR Title LIKE "%'.$keywords.'%" limit 15');
 echo '<div class="breadcrumbs"></div>
       <div class="container" >
         <div class="row">';
