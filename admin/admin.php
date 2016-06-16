@@ -233,18 +233,30 @@ $(document).ready(function(){
   $(function () {
         "use strict";
         //BAR CHART
+        var json=null;
+
+        $.ajax({
+          url: 'control/chart-transaction.php',
+          dataType: 'json',
+          success:function (data) {
+             json=data; 
+          }
+        })
+        .done(function() {
+          console.log("success");
+        })
+        .fail(function() {
+          console.log("error");
+        })
+        .always(function() {
+          console.log("complete");
+        });
+        
+
         var bar = new Morris.Bar({
           element: 'bar-chart',
           resize: true,
-          data: [
-            {y: '2006', a: 10, b: 9},
-            {y: '2007', a: 75, b: 65},
-            {y: '2008', a: 50, b: 40},
-            {y: '2009', a: 75, b: 65},
-            {y: '2010', a: 50, b: 40},
-            {y: '2011', a: 75, b: 65},
-            {y: '2012', a: 60, b: 60}
-          ],
+          data: json,
           barColors: ['#4BC0C0', '#FF6384'],
           xkey: 'y',
           ykeys: ['a', 'b'],
