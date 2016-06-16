@@ -115,7 +115,7 @@ $db->readData("select *from class");
 foreach ($db->dataClass as $val) {
 	extract($val);
 	?>
-																																																																	<option value="<?php echo $IdClass;?>"><?php echo $ClassName;
+	<option value="<?php echo $IdClass;?>"><?php echo $ClassName;
 	?></option>
 	<?php
 }

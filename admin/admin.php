@@ -12,12 +12,6 @@ session_start();
   <!--Include CSS-->
   <!-- Bootstrap 3.3.2 -->
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
-    <!-- FontAwesome 4.3.0 -->
-    
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    
-    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-    
     <link rel="stylesheet" href="assets/awesome/font-awesome.min.css">
     <link rel="stylesheet" href="assets/awesome/ionicons.min.css">    
     <!-- DATA TABLES -->
@@ -43,6 +37,7 @@ session_start();
 
     <link rel="stylesheet" type="text/css" href="assets/extendcss/amaran.min.css">
     <link rel="stylesheet" type="text/css" href="assets/extendcss/animate.min.css">
+    <link rel="stylesheet" href="assets/plugins/morris/morris.css">
 <!--END CSS-->
 
     <!--CSS PRINT BOOTSRTAP-->
@@ -227,11 +222,37 @@ if (isset($_GET['content'])) {
     <script type="text/javascript" src="assets/extenedjs/jquery.amaran.min.js"></script>
     <script type="text/javascript" src="assets/extenedjs/jquery.select.js"></script>
     <script type="text/javascript" src="assets/extenedjs/imagepreview.js"></script>
+    <!--ChartJS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="assets/plugins/chartjs/Chart.min.js"></script>
+    <script src="assets/plugins/morris/morris.min.js"></script>
+    <script src="assets/dist/js/demo.js"></script>
 <!--END JS-->
-
-
 <script type="text/javascript">
-
+$(document).ready(function(){
+  $(function () {
+        "use strict";
+        //BAR CHART
+        var bar = new Morris.Bar({
+          element: 'bar-chart',
+          resize: true,
+          data: [
+            {y: '2006', a: 10, b: 9},
+            {y: '2007', a: 75, b: 65},
+            {y: '2008', a: 50, b: 40},
+            {y: '2009', a: 75, b: 65},
+            {y: '2010', a: 50, b: 40},
+            {y: '2011', a: 75, b: 65},
+            {y: '2012', a: 60, b: 60}
+          ],
+          barColors: ['#4BC0C0', '#FF6384'],
+          xkey: 'y',
+          ykeys: ['a', 'b'],
+          labels: ['Peminjaman', 'Pengembalian'],
+          hideHover: 'auto'
+        });
+      });
+});
 </script>
 <script type="text/javascript">
   $('#tabReturnClick').click(function() {
