@@ -1,26 +1,24 @@
-
-    <!--
-    <div class="alert alert-info">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      Pesan Alert Info
-    </div>
-    <div class="alert alert-warning">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      Pesan Alert Peringatan
-    </div>
-    <div class="alert alert-danger fade in">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      Pesan Alert Gagal
-    </div>
-    -->
-
+ <?php
+require_once '../config/base.php';
+$db = new BaseClass();
+$stmt=$db->displayTable('SELECT * from collection;');
+$countCollection=$stmt->num_rows;
+$stmt=$db->displayTable('SELECT * FROM `mahad`.`detailloans` WHERE Ket="Ok";');
+$countLoans=$stmt->num_rows;
+$stmt=$db->displayTable('SELECT * from member;');
+$countMember=$stmt->num_rows;
+$stmt=$db->displayTable('SELECT `detailloans`.`No`AS `No`,`detailloans`.`IdLoans`AS `IdLoans`,
+                        `detailloans`.`IdCollection` AS `IdCollection`,`collection`.`Title`AS `Title`,
+                        `detailloans`.`DateLoans`    AS `Dateloans`,(`detailloans`.`DateLoans` + INTERVAL 1 WEEK) AS `ExpiredLoans`,`detailloans`.`Ket`AS `Ket`FROM (`detailloans`JOIN `collection`) WHERE (`collection`.`IdCollection` = `detailloans`.`IdCollection`) AND `detailloans`.`Ket`="Ok";');
+$countReturn=$stmt->num_rows;
+?>
           <!-- PANEL INFO 4 BUAH -->
           <div class="row">
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>150</h3>
+                  <h3><?php echo $countCollection; ?></h3>
                   <p>Data Koleksi</p>
                 </div>
                 <div class="icon">
@@ -33,8 +31,8 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
-                  <p>Bounce Rate</p>
+                  <h3><?php echo $countLoans; ?><sup style="font-size: 20px"></sup></h3>
+                  <p>Data Peminjaman</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -46,8 +44,8 @@
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3>44</h3>
-                  <p>User Registrations</p>
+                  <h3><?php echo $countMember; ?></h3>
+                  <p>Data Anggota</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
@@ -59,8 +57,8 @@
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3>65</h3>
-                  <p>Unique Visitors</p>
+                  <h3><?php echo $countReturn; ?></h3>
+                  <p>Data Pengembalian</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
