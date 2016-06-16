@@ -229,6 +229,23 @@ class BaseClass {
 		$_SESSION['message'] = "$message";
 	}
 
+	public function dateIndo($date){
+		$monthIndo = array("Januari","Februari","Maret","April"
+						  ,"Mei","Juni","Juli","Agustus","September"
+						  ,"Oktober","November","Desember");
+		$tahun=substr($date,0,4);
+		$bulan=substr($date,5,2);
+		$tgl=substr($date,8,2);
+		$result = $tgl . " " . $monthIndo[(int)$bulan-1] . " ". $tahun;
+		return($result);
+	}
+	public function getMonth($key){
+		$monthIndo = array("","Januari","Februari","Maret","April"
+						  ,"Mei","Juni","Juli","Agustus","September"
+						  ,"Oktober","November","Desember");
+		return $monthIndo[$key];
+	}
+
 }
 
 ?>
