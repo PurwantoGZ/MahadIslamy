@@ -8,7 +8,7 @@ $db = new BaseClass();
               <div class="box">
                 <div class="box-header">
                   <h3 class="box-title">Data Petugas Perpustakaan</h3>
-                  <h5> 12 Maret 2016</h5>
+                  <h5><?php echo $db->dateIndo(date("Y-m-d")); ?></h5>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <div class="table-responsive">

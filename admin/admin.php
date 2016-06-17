@@ -1,6 +1,8 @@
 <?php
 error_reporting(E_ALL^(E_NOTICE|E_WARNING));
 session_start();
+include_once '../config/base.php';
+$db=new BaseClass();
 ?>
 <!DOCTYPE html>
 <html>
@@ -72,7 +74,7 @@ session_start();
       <section class="content-header">
           <h1>
             Dashboard
-            <small>Control panel</small>
+            <small><?php echo $db->dateIndo(date("Y-m-d")); ?></small>
           </h1>
           <?php
             if ($_SESSION['notif'] == "success") {

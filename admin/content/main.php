@@ -69,7 +69,7 @@ $countReturn=$stmt->num_rows;
           <!-- Main row -->
           <div class="row">
             <!-- Left col -->
-            <section class="col-lg-7 connectedSortable">
+            <section class="col-md-8 connectedSortable">
               <!-- Custom tabs (Charts with tabs)-->
               <div class="nav-tabs-custom">
                 <!-- Tabs within a box -->
@@ -93,8 +93,9 @@ $countReturn=$stmt->num_rows;
               </div><!-- /.nav-tabs-custom -->
             </section><!-- /.Left col -->
             <!-- right col (We are only adding the ID to make the widgets sortable)-->
+
             <!--INFORMASI DAFTAR PENGEMBALIAN HARI INI-->
-            <section class="col-lg-5 connectedSortable">
+            <section class="col-md-4 connectedSortable">
                 <div class="box box-danger box-solid">
                 <div class="box-header with-border">
                   <h3 class="box-title">Daftar Pengembalian Hari Ini</h3>
@@ -129,4 +130,8 @@ $countReturn=$stmt->num_rows;
                 </div><!-- /.box-footer -->
               </div>
             </section><!-- right col -->
+
+            <section class="col-md-4 connectedSortable">
+              <div class="box box-primary box-solid"></div>
+            </section>
           </div><!-- /.row (main row) -->

@@ -1,8 +1,12 @@
+<?php 
+require_once '../../config/base.php';
+$db = new BaseClass();
+ ?>
 <div class="col-md-12">
 <div class="panel panel-primary">
       <div class="panel-heading">
        <h3 class="panel-title"> Laporan Data Koleksi </h3>
-       <h5>12 Mei 2016</h5>         
+       <h5><?php echo $db->dateIndo(date("Y-m-d")); ?></h5>         
       </div>
       <div class="panel-body">
           <div class="table-responsive">
