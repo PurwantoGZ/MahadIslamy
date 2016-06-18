@@ -23,7 +23,7 @@ $db = new BaseClass();
                         <th>Kategori</th>
                         <th>Letak</th>
                         <th>Status</th>
-                        <th style="width: 150px;">Pilihan</th>
+                        <th style="width: 145px;">Pilihan</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -68,10 +68,6 @@ if ($result->num_rows > 0) {
 									<a data-toggle="modal" class="btn btn-danger btn-flat" data-target="#delCollectionModal" data-id="<?php echo $row['IdCollection'];?>" data-cover="<?php echo $row['Cover'];?>" href="#" style="color: #fff;"><li class="fa fa-trash-o"></li>
                   </a>
                   <a class="btn btn-warning btn-flat" target="_blank" href="../print/print-attr-collection.php?IdCollection=<?php echo $row['IdCollection'];?>"><li class="fa fa-print"></li></a>
-                  
-
-									
-					
 				</td>
 		</tr>
 		<?php

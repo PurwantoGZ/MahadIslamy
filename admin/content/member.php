@@ -23,7 +23,7 @@ $db = new BaseClass();
                           <th>Tgl. Daftar</th>
                           <th>Tgl. Jatuh Tempo</th>
                           <th>Status</th>
-                          <th >Pilihan</th>
+                          <th style="width: 145px;">Pilihan</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -48,8 +48,7 @@ if ($result->num_rows > 0) {
 			echo "label-danger";
 		}
 		?>"><?php echo $row['Status']?></span></td>
-								<td>
-										<div class="btn-group">
+								<td style="align-content: center;">
 												<a class="btn btn-info btn-flat" data-toggle="modal" data-placement="top" title="Edit Data Member" data-target="#EditModal"
                             data-id="<?php echo $row['IdMember'];?>"
                             data-name="<?php echo $row['MemberName'];?>"
@@ -66,7 +65,6 @@ if ($result->num_rows > 0) {
                           </a>
 
                           <a class="btn btn-warning btn-flat" target="_blank" href="../print/print-idcard-one.php?idMember=<?php echo $row['IdMember'];?>"><li class="fa fa-print"></li></a>
-					         </div>
 				      </td>
 				</tr>
 		<?php
