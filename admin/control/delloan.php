@@ -7,7 +7,7 @@ $arrayName = array('Count' =>"(Count+1)");
 
    if ($db->delete("detailloans","No=$idDelLoans")==true) {
    		$db->cancelInsert("collection",$arrayName,"IdCollection='$idCollection'");
-      $db->viewMessage("success","Data sukses dipinjam");
+      $db->viewMessage("success","Koleksi Dibatalkan");
     }else{
         $db->viewMessage("danger","Data Gagal dipinjam !!");
     }
