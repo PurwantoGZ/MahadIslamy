@@ -5,7 +5,7 @@ $db = new BaseClass();
 <div class="col-md-12">
 <div class="panel panel-primary">
       <div class="panel-heading">
-       <h3 class="panel-title"> Laporan Data Koleksi </h3>
+       <h3 class="panel-title"> Laporan Keseluruhan Data Anggota  </h3>
        <h5><?php echo $db->dateIndo(date("Y-m-d")); ?></h5>         
       </div>
       <div class="panel-body">
