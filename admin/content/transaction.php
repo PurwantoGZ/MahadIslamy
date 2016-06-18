@@ -4,11 +4,13 @@ $db       = new BaseClass();
 $idLoans  = $db->getAutoId("select max(right(loans.IdLoans,4))as 'IdLoans' from mahad.loans;", "PJ16");
 
 $idMember = $_SESSION['IdAnggota'];
-$stmt=$db->displayTable('SELECT * FROM `loans`,`detailloans` WHERE `detailloans`.`IdLoans`=`loans`.`IdLoans` AND `loans`.`IdMember`='.$idMember.'');
+$stmt=$db->displayTable('SELECT * FROM `loans`,`detailloans` WHERE `detailloans`.`Ket`="OK" and `detailloans`.`IdLoans`=`loans`.`IdLoans` AND `loans`.`IdMember`='.$idMember.'');
 $CountLoans=$stmt->num_rows;
 $Ket="No";
-$stmt2=$db->displayTable('SELECT * FROM `loans`,`detailloans` WHERE `detailloans`.`IdLoans`=`loans`.`IdLoans` AND `loans`.`IdMember`='.$idMember.' AND `detailloans`.`Ket`='.$Ket.'');
+$stmt2=$db->displayTable('SELECT * FROM mahad.`return` WHERE mahad.`return`.`IdMember`='.$idMember.';');
 $countReturn=$stmt2->num_rows;
+$stmt3=$db->displayTable('SELECT * FROM DataLoans where IdMember='.$idMember.';');
+$countHistory=$stmt3->num_rows;
 $totalDay=0;
 $totalPay=0;
 ?>
@@ -35,7 +37,7 @@ if (isset($_GET['viewTrans'])) {
       						<b>Pengembalian</b> <a class="pull-right"><?php echo $countReturn;?></a>
       					</li>
       					<li class="list-group-item">
-      						<b>History</b> <a class="pull-right">13,287</a>
+      						<b>History</b> <a class="pull-right"><?php echo $countHistory;?></a>
       					</li>
   					</ul>
   					<a href="?content=transaction&viewTrans=0" class="btn btn-primary btn-block"><b>Selesai</b></a>
