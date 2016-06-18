@@ -7,7 +7,7 @@ $db = new BaseClass();
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                  <h3 class="box-title">Data Anggota Perpustakaan</h3>
+                  <h3 class="box-title">Data Anggota Habis Masa Aktif</h3>
                   <h5><?php echo $db->dateIndo(date("Y-m-d")); ?></h5>
                 </div><!-- /.box-header -->
                 <div class="box-body">
