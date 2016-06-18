@@ -145,36 +145,14 @@ if (isset($_GET['content'])) {
       <div class="row">
           <div class="col-md-6">
             <div class="btn-group">
-                <button id="rptm1" type="button" class="btn btn-default" title="Tabulasi Total" alt="Tabulasi Total"> <i class="fa fa-table"></i> </button>
-                <button id="rptm2" type="button" class="btn btn-default" title="Tabulasi Per Semester" alt="Tabulasi Per Semester"> <i class="fa fa-list-alt"></i> </button>
-                <button id="rptm3" type="button" class="btn btn-default" title="Grafik" alt="Grafik"> <i class="fa fa-bar-chart-o"></i> </button>
+                <button id="rptm1" type="button" class="btn btn-default" title="Tabulasi Total" alt="Tabulasi Total">
+                 <i class="fa fa-table"></i></button>
+                <button id="rptm2" type="button" class="btn btn-default" title="Tabulasi Per Semester" alt="Tabulasi Per Semester">
+                 <i class="fa fa-list-alt"></i></button>
+                <button id="rptm3" type="button" class="btn btn-default" title="Grafik" alt="Grafik">
+                 <i class="fa fa-bar-chart-o"></i></button>
             </div>
           </div><!-- /.col -->
-          <!--FILTER KATEGORI-->
-          <div id="divFilter1" class="col-md-6" style="margin-bottom:15px;">
-            <form role="form" class="form-inline text-right" method="post" action="">
-                <div class="form-group">
-                    <label>Pilih Kategori:</label>
-                        <select class="form-control">
-                            <option value="">Penerbit</option>
-                            <option value="">Penulis</option>
-                            <option value="">Kategori Koleksi</option>
-                            <option value="">Jenis Koleksi</option>
-                            <option value="">Rak</option>
-                            <option value="">Status</option>
-                        </select>
-                    </div>
-                <div class="form-group">
-                    <label>Kata Kunci:</label>
-                    <select class="form-control">                   
-                    </select>
-                </div>
-                <div class="form-group">
-                  <button type="submit" class="btn btn-primary">Lihat</button>
-                </div>
-            </form>
-          </div>
-          <!--END FILTER-->
       </div><!--/.row-->
       <br>
       <div id="contentreportmember" class="row">
@@ -183,10 +161,6 @@ if (isset($_GET['content'])) {
   }elseif ($_GET['content']=='listRenewMember') {
     include_once 'content/list-expired-member.php';
   }
-
-
-
-
 } else {
 	include_once 'content/main.php';
 }
@@ -306,6 +280,26 @@ $(document).ready(function(){
 </script>
 
 <script type="text/javascript">
+$(document).ready(function() {
+  
+  $('#contentreportmember').show('fast', function() {
+    $('#divFilter1').attr("hidden","hidden");
+      $.ajax({
+          url:"content/report-member-full.php",
+          cache:false,
+          success:function(data){
+            $('#contentreportmember').html(data);
+          }
+      });
+      $.ajax({
+        url:"control/show-report-member-full.php",
+        cache:false,
+        success:function(table){
+          $('#rpmember').html(table);
+        }
+      });
+  });
+
   $('#rptm1').click(function(){
       $('#divFilter1').attr("hidden","hidden");
       $.ajax({
@@ -345,6 +339,7 @@ $(document).ready(function(){
           }
       });
     });
+});
 </script>
 
 <script type="text/javascript">
